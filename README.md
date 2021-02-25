@@ -16,6 +16,12 @@ Or copy this colabs in your Google Drive:
 * Pract1: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1O60VH-dH2JrTpcKJh9LCqdxsq2RVlgcv)
 * Pract2: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1B1NwuAYXxl7zU3dEagYnf1d_p19YY9Gf)
 
+## Proposed projects
+* Face recognition
+* Action Recognition 
+* Age recognition
+* Counting people in a room (without detection)
+* Underwate gesture (http://www.caddian.eu//CADDY-Underwater-Gestures-Dataset.html)
 
 ## Authors
 
