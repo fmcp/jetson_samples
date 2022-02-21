@@ -11,6 +11,11 @@ Clone this repository with git and upload notebooks to your Google Drive:
 git clone https://github.com/fmcp/jetson_samples
 ```
 
+Maybe neccesary:
+```
+sudo pip3 install --global-option=build_ext --global-option="-I/usr/local/cuda/include" --global-option="-L/usr/local/cuda/lib64" pycuda
+```
+
 Or copy this colabs in your Google Drive:
 
 * Pract1: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1O60VH-dH2JrTpcKJh9LCqdxsq2RVlgcv)
