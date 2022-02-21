@@ -14,7 +14,7 @@ git clone https://github.com/fmcp/jetson_samples
 Or copy this colabs in your Google Drive:
 
 * Pract1: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1O60VH-dH2JrTpcKJh9LCqdxsq2RVlgcv)
-* Pract2: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1B1NwuAYXxl7zU3dEagYnf1d_p19YY9Gf)
+* Pract2: [![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Q8M0Kw-Ub9xBOUuNAHIwWlGRVOUPXqT0)
 
 ## Proposed projects
 * Face recognition

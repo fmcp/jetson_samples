@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 import time
 
-LABELS = ["0", "1"] # UPDATE ME!!!!
+LABELS = ["Banana", "Lemon", "Orange", "Strawberry"] # UPDATE ME!!!!
 
 config = tf.compat.v1.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction=0.2
