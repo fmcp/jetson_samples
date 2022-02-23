@@ -63,19 +63,34 @@ def live_test(model_path):
     #model = tf.keras.models.load_model(model_path)
     cap = cv2.VideoCapture(0)
     live_data = True
-    while (live_data):
-        # Capture frame-by-frame
+    with get_engine("no", model_path) as engine, engine.create_execution_context() as context:
         ret, orig_frame = cap.read()
         frame = cv2.cvtColor(orig_frame, cv2.COLOR_BGR2RGB)
-        frame = cv2.resize(frame, (28, 28))
+        frame = cv2.resize(frame, (224, 224))
         frame = np.expand_dims(frame, axis=0)
+        frame = frame.astype(np.float32)
+        print(frame.dtype)
+        frame = frame/255.0
+        frame = frame.astype(np.float32)
+        print(frame.dtype)
+        #frame = frame.astype(float)
+        inputs_trt, outputs_trt, bindings_trt, stream_trt = common.allocate_buffers(engine, frame)
+        while (live_data):
+            # Capture frame-by-frame
+            ret, orig_frame = cap.read()
+            frame = cv2.cvtColor(orig_frame, cv2.COLOR_BGR2RGB)
+            frame = cv2.resize(frame, (224, 224))
+            frame = np.expand_dims(frame, axis=0)
+            frame = frame.astype(np.float32)
+            #print(frame.dtype)
+            frame = frame/255.0
+            frame = frame.astype(np.float32)
+            #print(frame.dtype)
 
-        # Predict
-        start = time.time()
-        #results = model.predict(frame)
+            # Predict
+            start = time.time()
+            #results = model.predict(frame)
 
-        with get_engine("no", model_path) as engine, engine.create_execution_context() as context:
-            inputs_trt, outputs_trt, bindings_trt, stream_trt = common.allocate_buffers(engine, frame)
             # Do inference
             # Set host input to the image. The common.do_inference function will copy the input to the GPU before executing.
             inputs_trt[0].host = frame
@@ -83,18 +98,19 @@ def live_test(model_path):
             results = common.do_inference_v2(context, bindings=bindings_trt, inputs=inputs_trt,
                                            outputs=outputs_trt, stream=stream_trt)
 
-        fps = 1.0 / (time.time() - start)
-        results = np.squeeze(results)
-        predicted_label = np.argmax(results)
-        score = results[predicted_label]
+            #print(results)
+            fps = 1.0 / (time.time() - start)
+            results = np.squeeze(results)
+            predicted_label = np.argmax(results)
+            score = results[predicted_label]
 
-        # Display the resulting frame
-        res = "{} ({:0.1f}%); FPS: {:d}".format(LABELS[predicted_label], score * 100, int(fps))
-        cv2.putText(orig_frame, res, (5, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3, cv2.LINE_AA)
-        cv2.imshow('Prediction', orig_frame)
-        pressedKey = cv2.waitKey(1) & 0xFF
-        if pressedKey == ord('q'):
-            live_data = False
+            # Display the resulting frame
+            res = "{} ({:0.1f}%); FPS: {:d}".format(LABELS[predicted_label], score * 100, int(fps))
+            cv2.putText(orig_frame, res, (5, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3, cv2.LINE_AA)
+            cv2.imshow('Prediction', orig_frame)
+            pressedKey = cv2.waitKey(1) & 0xFF
+            if pressedKey == ord('q'):
+                live_data = False
 
     # When everything done, release the capture
     cap.release()

@@ -30,8 +30,9 @@ Or copy this colabs in your Google Drive:
 
 ## Authors
 
-* **Francisco M. Castro** - [fcastro](https://github.com/fcastro)
+* **Francisco M. Castro** - [fmcp](https://github.com/fmcp)
 * **Rubén Delgado Escaño** - [rubende](https://github.com/rubende)
+* **Paula Ruíz Barroso** - [PaulaRuizB](https://github.com/PaulaRuizB)
 
 ## License
 

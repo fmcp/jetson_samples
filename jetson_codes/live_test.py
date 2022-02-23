@@ -24,7 +24,7 @@ def live_test(model_path):
 		frame = cv2.cvtColor(orig_frame, cv2.COLOR_BGR2RGB)
 		frame = cv2.resize(frame, (224, 224))
 		frame = np.expand_dims(frame, axis=0)
-
+		frame = frame/255.0
 		# Predict
 		start = time.time()
 		results = model.predict(frame)
