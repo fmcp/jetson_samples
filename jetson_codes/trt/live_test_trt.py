@@ -114,7 +114,7 @@ def live_test(model_path):
             lw, lh, lc = logos.shape
             w, h, c = orig_frame.shape   
             orig_frame[w-lw:, h-lh:, :] = logos
-            orig_frame = cv2.resize(orig_frame, (1800, 1000))
+            orig_frame = cv2.resize(orig_frame, (1840, 1000))
             cv2.imshow('Prediction', orig_frame)
             pressedKey = cv2.waitKey(1) & 0xFF
             if pressedKey == ord('q'):
