@@ -34,6 +34,8 @@ Or copy this colabs in your Google Drive:
 * **Rubén Delgado Escaño** - [rubende](https://github.com/rubende)
 * **Paula Ruíz Barroso** - [PaulaRuizB](https://github.com/PaulaRuizB)
 
+![logo](./img/logos.jpg)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

@@ -60,6 +60,8 @@ def get_engine(onnx_file_path, engine_file_path=""):
 
 
 def live_test(model_path):
+    logos = cv2.imread("../../img/logos.jpg")
+
     #model = tf.keras.models.load_model(model_path)
     cap = cv2.VideoCapture(0)
     live_data = True
@@ -68,10 +70,10 @@ def live_test(model_path):
         frame = cv2.cvtColor(orig_frame, cv2.COLOR_BGR2RGB)
         frame = cv2.resize(frame, (224, 224))
         frame = np.expand_dims(frame, axis=0)
-        frame = frame.astype(np.float32)
+        frame = frame.astype(np.float16)
         print(frame.dtype)
         frame = frame/255.0
-        frame = frame.astype(np.float32)
+        frame = frame.astype(np.float16)
         print(frame.dtype)
         #frame = frame.astype(float)
         inputs_trt, outputs_trt, bindings_trt, stream_trt = common.allocate_buffers(engine, frame)
@@ -81,10 +83,10 @@ def live_test(model_path):
             frame = cv2.cvtColor(orig_frame, cv2.COLOR_BGR2RGB)
             frame = cv2.resize(frame, (224, 224))
             frame = np.expand_dims(frame, axis=0)
-            frame = frame.astype(np.float32)
+            frame = frame.astype(np.float16)
             #print(frame.dtype)
             frame = frame/255.0
-            frame = frame.astype(np.float32)
+            frame = frame.astype(np.float16)
             #print(frame.dtype)
 
             # Predict
@@ -107,6 +109,11 @@ def live_test(model_path):
             # Display the resulting frame
             res = "{} ({:0.1f}%); FPS: {:d}".format(LABELS[predicted_label], score * 100, int(fps))
             cv2.putText(orig_frame, res, (5, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3, cv2.LINE_AA)
+            
+            # Insert logos
+            lw, lh, lc = logos.shape
+            w, h, c = orig_frame.shape   
+            orig_frame[w-lw:, h-lh:, :] = logos
             cv2.imshow('Prediction', orig_frame)
             pressedKey = cv2.waitKey(1) & 0xFF
             if pressedKey == ord('q'):
