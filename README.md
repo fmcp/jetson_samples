@@ -30,9 +30,9 @@ Or copy this colabs in your Google Drive:
 
 ## Authors
 
-* **Francisco M. Castro** - [fmcp](https://github.com/fmcp) (fcastro@uma.es) [![Linkedin](https://www.linkedin.com/in/francisco-manuel-castro-pay%C3%A1n-5099248b/)]
-* **Rubén Delgado Escaño** - [rubende](https://github.com/rubende) (rubende@uma.es) [![Linkedin](https://www.linkedin.com/in/rubende/)]
-* **Paula Ruíz Barroso** - [PaulaRuizB](https://github.com/PaulaRuizB) (pruizb@uma.es) [![Linkedin](https://www.linkedin.com/in/paula-ruiz-barroso/)]
+* **Francisco M. Castro** - [fmcp](https://github.com/fmcp) (fcastro@uma.es) [![Linkedin](https://cdn-icons-png.flaticon.com/512/174/174857.png)](https://www.linkedin.com/in/francisco-manuel-castro-pay%C3%A1n-5099248b/)
+* **Rubén Delgado Escaño** - [rubende](https://github.com/rubende) (rubende@uma.es) [![Linkedin](https://cdn-icons-png.flaticon.com/512/174/174857.png)](https://www.linkedin.com/in/rubende/)
+* **Paula Ruíz Barroso** - [PaulaRuizB](https://github.com/PaulaRuizB) (pruizb@uma.es) [![Linkedin](https://cdn-icons-png.flaticon.com/512/174/174857.png)](https://www.linkedin.com/in/paula-ruiz-barroso/)
 
 ![logo](./img/logos.jpg)
 
