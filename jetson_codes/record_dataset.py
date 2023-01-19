@@ -35,7 +35,7 @@ def collect_data(outdir, class_name):
 
 if __name__ == '__main__':
 	# Input arguments
-	parser = argparse.ArgumentParser(description='Collects data for a class. For each class of the dataset, you must ejecute this code indicating the name of the label. If you push key s, it saves an image. q stop the recorcing')
+	parser = argparse.ArgumentParser(description='Collects data for a class. For each class of the dataset, you must ejecute this code indicating the name of the label. If you push key s, it saves an image. q stop the recording')
 	parser.add_argument('--outdir', type=str, required=False, default="", help="Output folder")
 	parser.add_argument('--class_name', type=str, required=False, default="", help="Class name")
 
